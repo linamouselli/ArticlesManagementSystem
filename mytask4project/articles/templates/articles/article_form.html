@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Article</title>
+</head>
+<body>
+<h2>New Article</h2>
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <p>
+        {{ form.title.label_tag }}<br>
+        {{ form.title }} {{ form.title.errors }}
+    </p>
+    <p>
+        {{ form.content.label_tag }}<br>
+        {{ form.content }} {{ form.content.errors }}
+    </p>
+    <button type="submit">Post</button><br><br>
+
+    <a href="{% url 'article_list' %}">Back to articles list</a>
+</form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Article List</title>
+</head>
+<body>
+<h2>Article List</h2>
+{% if  articles %}
+<ul>
+    {% for a in articles %}
+    <li>
+        <h3> {{ a.title }} </h3>
+        <p> {{ a.content }}</p>
+        <small> Posted at {{ a.created_at }} </small>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No articles yet, you can press on below link to add new articles</p>
+{% endif %}
+<a href="{% url 'new_article' %}">Create New Article</a>
+</body>
+</html>
